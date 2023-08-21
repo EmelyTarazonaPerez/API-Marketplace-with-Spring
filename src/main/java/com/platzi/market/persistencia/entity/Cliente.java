@@ -1,4 +1,4 @@
-package com.proyectospring.proyectomarket.persistencia.entity;
+package com.platzi.market.persistencia.entity;
 
 import javax.persistence.*;
 import java.util.List;
