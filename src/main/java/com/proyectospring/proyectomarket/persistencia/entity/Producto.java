@@ -30,7 +30,7 @@ public class Producto {
         return idProducto;
     }
     @Column(name = "cantidad_sto")
-    private Integer cantidadSto;
+    private Integer cantidadStock;
 
     private boolean estado;
 
@@ -66,14 +66,14 @@ public class Producto {
     }
 
     public Integer getCantidadSto() {
-        return cantidadSto;
+        return cantidadStock;
     }
 
     public void setCantidadSto(Integer cantidadSto) {
-        this.cantidadSto = cantidadSto;
+        this.cantidadStock = cantidadSto;
     }
 
-    public boolean isEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
