@@ -1,8 +1,6 @@
-package com.proyectospring.proyectomarket.persistencia.entity;
+package com.platzi.market.persistencia.entity;
 
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
-import java.util.List;
 
 @Entity
 @Table(name = "productos")
@@ -15,27 +13,29 @@ public class Producto {
 
     private String nombre;
 
+    @Column(name = "id_categoria")
+    private Integer idCategoria;
+
     @ManyToOne
     @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
     private Categoria categoria;
 
-    @Column(name = "codigo_barra")
+    @Column(name = "codigo_barras")
     private String codigoBarra;
 
     @Column(name = "precio_venta")
     private Double precioVenta;
 
 
-    public Integer getIdProducto() {
-        return idProducto;
-    }
-    @Column(name = "cantidad_sto")
+    @Column(name = "cantidad_stock")
     private Integer cantidadStock;
 
     private boolean estado;
 
-    @OneToMany(mappedBy = "producto")
-    private List<ComprasProducto> productos;
+    //Get and Sert Methods
+    public Integer getIdProducto() {
+        return idProducto;
+    }
 
     public void setIdProducto(Integer idProducto) {
         this.idProducto = idProducto;
@@ -65,13 +65,6 @@ public class Producto {
         this.precioVenta = precioVenta;
     }
 
-    public Integer getCantidadSto() {
-        return cantidadStock;
-    }
-
-    public void setCantidadSto(Integer cantidadSto) {
-        this.cantidadStock = cantidadSto;
-    }
 
     public boolean getEstado() {
         return estado;
@@ -80,5 +73,31 @@ public class Producto {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
+    public Integer getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(Integer idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
+    public Integer getCantidadStock() {
+        return cantidadStock;
+    }
+
+    public void setCantidadStock(Integer cantidadStock) {
+        this.cantidadStock = cantidadStock;
+    }
+
+
 
 }

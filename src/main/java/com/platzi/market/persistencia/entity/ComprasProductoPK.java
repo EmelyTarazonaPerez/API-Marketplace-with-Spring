@@ -1,4 +1,4 @@
-package com.proyectospring.proyectomarket.persistencia.entity;
+package com.platzi.market.persistencia.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;

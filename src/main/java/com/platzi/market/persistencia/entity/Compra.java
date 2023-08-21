@@ -1,4 +1,4 @@
-package com.proyectospring.proyectomarket.persistencia.entity;
+package com.platzi.market.persistencia.entity;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,13 +11,17 @@ public class Compra {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_compra")
     private Integer idCompra;
+    @Column(name = "id_cliente")
+    private String idCliente;
+    private LocalDateTime fecha;
+    @Column(name = "medio_pago")
+    private String medioPago;
+    private String comentario;
+    private String estado;
 
     @ManyToOne
     @JoinColumn(name = "id_cliente", updatable = false, insertable = false )
     private Cliente cliente;
-
-    private LocalDateTime fecha;
-
 
     @OneToMany (mappedBy = "compra" )
     private List<ComprasProducto> productos;
@@ -62,11 +66,6 @@ public class Compra {
         this.estado = estado;
     }
 
-    @Column(name = "medio_pago")
-    private String medioPago;
 
-    private String comentario;
-
-    private String estado;
 
 }
