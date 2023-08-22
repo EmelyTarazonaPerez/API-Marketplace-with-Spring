@@ -4,33 +4,28 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "clientes")
+@Table(name="clientes")
 public class Cliente {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer idClientes;
-
+    private String id;
     private String nombre;
-
-    private String apellido;
-
-    private Double celular;
-
+    private String apellidos;
+    private Long celular;
     private String direccion;
 
     @Column(name="correo_electronico")
     private String correoElectronico;
 
-
     @OneToMany(mappedBy = "cliente")
-    private List<Compra> compra;
-    public Integer getIdClientes() {
-        return idClientes;
+    private List<Compra> compras;
+
+    public String getId() {
+        return id;
     }
 
-    public void setIdClientes(Integer idClientes) {
-        this.idClientes = idClientes;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -41,19 +36,19 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
-    public Double getCelular() {
+    public Long getCelular() {
         return celular;
     }
 
-    public void setCelular(Double celular) {
+    public void setCelular(Long celular) {
         this.celular = celular;
     }
 
@@ -73,6 +68,11 @@ public class Cliente {
         this.correoElectronico = correoElectronico;
     }
 
+    public List<Compra> getCompras() {
+        return compras;
+    }
 
-
+    public void setCompras(List<Compra> compras) {
+        this.compras = compras;
+    }
 }
